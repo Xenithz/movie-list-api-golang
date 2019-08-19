@@ -56,7 +56,7 @@ func GetMovieByID(Movies *types.Movies, id int) error {
 		panic(err)
 	}
 
-	rows, err := db.Query(`SELECT * FROM movies WHERE movie_id = ?`, id)
+	rows, err := db.Query(`SELECT * FROM movies WHERE movie_id = $1`, id)
 	if err != nil {
 		return err
 	}
@@ -94,7 +94,7 @@ func GetMovieByTitle(Movies *types.Movies, title string) error {
 		panic(err)
 	}
 
-	rows, err := db.Query(`SELECT * FROM movies WHERE movie_title = ?`, title)
+	rows, err := db.Query(`SELECT * FROM movies WHERE movie_title = $1`, title)
 	if err != nil {
 		return err
 	}
@@ -132,7 +132,7 @@ func GetMovieByGenre(Movies *types.Movies, genre string) error {
 		panic(err)
 	}
 
-	rows, err := db.Query(`SELECT * FROM movies WHERE movie_genre = ?`, genre)
+	rows, err := db.Query(`SELECT * FROM movies WHERE movie_genre = $1`, genre)
 	if err != nil {
 		return err
 	}
@@ -170,7 +170,7 @@ func GetMovieByDirector(Movies *types.Movies, director string) error {
 		panic(err)
 	}
 
-	rows, err := db.Query(`SELECT * FROM movies WHERE movie_director = ?`, director)
+	rows, err := db.Query(`SELECT * FROM movies WHERE movie_director = $1`, director)
 	if err != nil {
 		return err
 	}
