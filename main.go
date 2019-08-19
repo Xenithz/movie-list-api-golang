@@ -20,7 +20,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func getAllMovies(w http.ResponseWriter, r *http.Request) {
 	movies := types.Movies{}
 
-	err := queries.GetAllMovies(&Movies)
+	err := queries.GetAllMovies(&movies)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
